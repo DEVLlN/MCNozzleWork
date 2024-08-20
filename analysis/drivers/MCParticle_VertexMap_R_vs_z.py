@@ -39,12 +39,11 @@ for f in fnames:
 
     reader.close()
 
-# Make your plots
+# Make plots
 ROOT.gStyle.SetOptStat(0)
 for i, h in enumerate(hists):
     c = ROOT.TCanvas("c%i" % i, "c%i" % i, 2800, 1600)  # Wider canvas
 
-    # Set margins to leave space for axis titles
     c.SetLeftMargin(0.2)  # % of the canvas width
     c.SetRightMargin(0.2)  # % of the canvas width
     c.SetBottomMargin(0.15)  # Increased margin to fit x-axis title
@@ -56,7 +55,7 @@ for i, h in enumerate(hists):
     hists[h].SetYTitle("Vertex R [mm]")  # y-axis label
     hists[h].SetZTitle("Counts")  # z-axis label
     hists[h].SetMaximum(1652537)
-    hists[h].Draw("COLZ")
+    hists[h].Draw("COLZ") # just use this trust me
     c.SetLogz()  # log scale z-axis
 
     # Add total entries text box

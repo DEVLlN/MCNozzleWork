@@ -3,13 +3,15 @@ import ROOT
 import glob
 import math
 
+## This script is not yet working as intended! The exlusion of the nozzle region is not functioning correctly. Will fix soon! - Devlin
 # Set up some options
 max_events = -1
 
+## Need to fix this! - is incorrect do not use!
 # Z and radius ranges for the nozzle region to exclude with a 5mm buffer zone
 buffer = 5  # 5mm buffer
 
-# Define nozzle segments with a 5mm buffer zone for both positive and negative Z
+# nozzle segments with a 5mm buffer zone for both positive and negative Z
 nozzle_segments = [
     (60 - buffer, 150 + buffer, 18.238 + buffer),
     (150 - buffer, 193 + buffer, 19.465 + buffer),
@@ -25,6 +27,7 @@ nozzle_segments = [
 z_nozzle_min = min(segment[0] for segment in nozzle_segments)
 z_nozzle_max = max(segment[1] for segment in nozzle_segments)
 
+# Need to fix this! - is incorrect do not use!
 # Radius function based on the linear relationship for multiple segments
 def radius_at_z(z):
     for z_start, z_end, r_max in nozzle_segments:
